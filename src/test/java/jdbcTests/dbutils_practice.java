@@ -1,5 +1,6 @@
 package jdbcTests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.DBUtils;
 
@@ -100,5 +101,22 @@ public class dbutils_practice {
         System.out.println("value = " + value);
         DBUtils.destroy();
 
+    }
+
+    @Test
+    public void test8(){
+        // get me all duplicate names and verify each name is used more than one
+        DBUtils.createConnection();
+        String query = "select first_name, count(*)\n" +
+                "from employees\n" +
+                "group by first_name\n" +
+                "having count(*)>1";
+        List<Map<String,Object>> queryData = DBUtils.getQueryResultMap(query);
+
+        for (Map<String, Object> eachRow : queryData) {
+            System.out.println("eachRow.get(\"COUNT(*)\") = " + eachRow.get("COUNT(*)"));
+        }
+
+        DBUtils.destroy();
     }
 }

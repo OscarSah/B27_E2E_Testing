@@ -12,9 +12,9 @@ public class DBUtils {
     private static ResultSet resultSet;
 
     public static void createConnection() {
-        String dbUrl = ConfigurationReader.get("dbUrlPsql");
-        String dbUsername = ConfigurationReader.get("dbUsernamePsql");
-        String dbPassword = ConfigurationReader.get("dbPasswordPsql");
+        String dbUrl = ConfigurationReader.get("dbUrl");
+        String dbUsername = ConfigurationReader.get("dbUsername");
+        String dbPassword = ConfigurationReader.get("dbPassword");
         try {
             connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (SQLException e) {
