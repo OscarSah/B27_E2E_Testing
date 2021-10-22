@@ -20,7 +20,7 @@ public class dynamic_list {
         //create statement object
         Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
         //run query and get the result in resultset object
-        ResultSet resultSet = statement.executeQuery("select first_name,last_name,salary from employees where salary>5000");
+        ResultSet resultSet = statement.executeQuery("select first_name,last_name,salary, job_id from employees where salary>5000");
 
         //get the resultset object metadata
         ResultSetMetaData rsMetadata = resultSet.getMetaData();
@@ -53,6 +53,9 @@ public class dynamic_list {
             System.out.println(row.toString());
         }
 
+        // database information comes in case sensetive
+        System.out.println("queryData.get(10).get(\"first_name\") = " + queryData.get(10).get("FIRST_NAME"));
+        System.out.println("queryData.get(10).get(\"salary\") = " + queryData.get(10).get("SALARY"));
         //close all connections
         resultSet.close();
         statement.close();

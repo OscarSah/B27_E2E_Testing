@@ -37,13 +37,25 @@ public class listofmap_example {
 
         System.out.println(row2.get("salary"));
 
+        Map<String,Object> row3 = new HashMap<>();
+        row3.put("first_name","Oscar");
+        row3.put("last_name","SH");
+        row3.put("salary",25000);
+        row3.put("job_id","SDET");
+        System.out.println(row3.toString());
+
         //adding rows to my list
         queryData.add(row1);
         queryData.add(row2);
+        queryData.add(row3);
+
+        System.out.println("queryData.toString() = " + queryData.toString());
 
         //get the steven last name directly from the list
         System.out.println(queryData.get(0).get("last_name"));
 
+        // print Neena
+        System.out.println("queryData.get(1).get(\"first_name\") = " + queryData.get(1).get("first_name"));
 
 
     }
@@ -89,13 +101,21 @@ public class listofmap_example {
         queryData.add(row1);
         queryData.add(row2);
 
+
         //get the steven last name directly from the list
         System.out.println(queryData.get(0).get("LAST_NAME"));
 
         //row3
+// move to next row
+        resultSet.next();
+        Map<String,Object> row3 = new HashMap<>();
+        row3.put(rsMetadata.getColumnName(1),resultSet.getString(1));
+        row3.put(rsMetadata.getColumnName(2),resultSet.getString(2));
+        row3.put(rsMetadata.getColumnName(3),resultSet.getString(3));
+        row3.put(rsMetadata.getColumnName(4),resultSet.getString(4));
 
-
-
+        queryData.add(row3);
+        System.out.println("queryData.toString() = " + queryData.toString());
 
         //close all connections
         resultSet.close();

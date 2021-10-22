@@ -23,6 +23,7 @@ public class Main {
 //
 //        getting information with column name
        System.out.println(resultSet.getString("first_name"));
+        System.out.println(resultSet.getString("last_name"));
 //        //getting information with column index (starts from 1)
         System.out.println(resultSet.getString(2));
 //

@@ -11,7 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
-   // @Before
+    @Before
     public void setUp() {
         // we put a logic that should apply to every scenario
         Driver.get().manage().window().maximize();
@@ -19,7 +19,7 @@ public class Hooks {
 
     }
 
-   // @After
+    @After
     public void tearDown(Scenario scenario) {
         // only takes a screenshot if the scenario fails
         if (scenario.isFailed()) {
