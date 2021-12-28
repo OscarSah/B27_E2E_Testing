@@ -42,5 +42,10 @@ public class DBStepDefs {
     @Then("User verifies UI info with DB")
     public void userVerifiesUIInfoWithDB() {
         Assert.assertEquals(DBName,UIStepDefs.UIname);
+        Assert.assertEquals(DBBatch,UIStepDefs.UIbatch);
+        Assert.assertEquals(DBTeam,UIStepDefs.UIteam);
+        Assert.assertEquals(DBCampus,UIStepDefs.UIcampus);
+        Assert.assertEquals(DBRole,UIStepDefs.UIrole);
+
     }
 }
