@@ -5,11 +5,11 @@ Feature: Verify the info from all environment
     When User navigates to mySelf page
     Then User gets the UI info
 
-  @db
   Scenario: Get the info from DB
     When User sends a query to DataBase with "sbirdbj@fc2.com"
     Then User gets DataBase information
 
+  @db @bookit
   Scenario: Verify all environments
     When User sends a query to DataBase with "sbirdbj@fc2.com"
     Then User gets DataBase information
