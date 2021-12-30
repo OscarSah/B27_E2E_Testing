@@ -20,8 +20,8 @@ public class TestsWithOracle {
         String dbUrl = "jdbc:oracle:thin:@3.239.148.14:1521:xe";
         String dbUsername = "hr";
         String dbPassword = "hr";
-        String query = "select first_name,last_name,salary from employees"; // three columns, how about if I get more columns
-        connection = DriverManager.getConnection(dbUrl,dbUsername,dbPassword);
+        String query = "select distinct region_name from regions"; // three columns, how about if I get more columns
+        connection = DriverManager.getConnection(dbUrl,dbUsername,dbPassword); // connection string
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
 }
@@ -92,6 +92,17 @@ public class TestsWithOracle {
         }
         // From this point basically I can use JAVA collection methods to read and process my data
     }
+
+/*
+The information I need to be able to read the Table
+1. How many rows I have? ----- resultset.next() - takes you to the row
+2. How many columns I have?
+        ResultSetMetaData rsmd = resultSet.getMetaData();
+        int columnCount = rsmd.getColumnCount();
+3. I need to my column names
+         String columnName = rsmd.getColumnName(1);
+4. I need to read the data in that cell  resultset.getObject method to read the cell
+ */
 
 
 
