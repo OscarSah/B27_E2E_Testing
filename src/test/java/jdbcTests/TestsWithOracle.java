@@ -17,10 +17,11 @@ public class TestsWithOracle {
     ResultSet resultSet;
     @BeforeMethod
     public void setUp() throws SQLException {
-        String dbUrl = "jdbc:oracle:thin:@3.85.201.5:1521:xe";
-        String dbUsername = "hr";
-        String dbPassword = "hr";
-        String query = "select distinct first_name,last_name,salary from employees"; // three columns, how about if I get more columns
+        // let's send a query to spartans
+        String dbUrl = "jdbc:oracle:thin:@3.85.103.221:1521:XE";
+        String dbUsername = "SP";
+        String dbPassword = "SP";
+        String query = "select spartan_id, name, gender from spartans"; // three columns, how about if I get more columns
         connection = DriverManager.getConnection(dbUrl,dbUsername,dbPassword); // connection string
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
@@ -41,19 +42,19 @@ public class TestsWithOracle {
 
     @Test
     public void mapTest(){
-        List<Map<String,String>> salaryList = new ArrayList<>();
+        List<Map<String,String>> spartanList = new ArrayList<>();
         Map<String,String> map1 = new HashMap<>();
-        map1.put("first_name","Steven");
-        map1.put("last_name","King");
-        map1.put("salary","24000");
+        map1.put("spartan_id","1");
+        map1.put("name","Meade");
+        map1.put("gender","Male");
         Map<String,String> map2 = new HashMap<>();
-        map2.put("first_name","Neena");
-        map2.put("last_name","Kochhar");
-        map2.put("salary","17000");
+        map2.put("spartan_id","2");
+        map2.put("name","Nels");
+        map2.put("gender","male");
 
-        salaryList.add(map1);
-        salaryList.add(map2);
-        System.out.println(salaryList);
+        spartanList.add(map1);
+        spartanList.add(map2);
+        System.out.println(spartanList);
     }
 
     @Test

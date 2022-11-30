@@ -1,0 +1,43 @@
+JDBC + SQL Queries
+- How to verify UI Data from Database Information
+
+JDBC: Java Database Connectivity, API middle man, transfers your Java code into Database Env
+Database Testing
+Java Code  ----->  JDBC  ----->  Driver (Specific to Database Management System, Oracle, PostgreSQL...)  ------>  Database Part
+
+WebPage Testing
+JAVA  -----> Selenium  ----> WebDriverManager(this brings us necessary driver) ---> Connect Browser
+
+
+JDBC needs specific Driver to connect
+for Oracle we add this dependency to our pom.xml file
+        <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>19.3.0.0</version>
+        </dependency>
+
+Please use the same IP that you have for Jenkins/HR Database
+
+To reach Spartans WebPage: 3.85.201.5:8000
+To connect Spartans Database
+IP: 3.85.201.5. or you own EC2 Machine public ip
+Username:SP
+Password:SP
+
+Two Point Verification:  UI versus DB
+A change in the UI can be verified from DB part and vice verse
+
+To connect DB with JDBC we need followings:
+1. Driver
+2. Connection String:
+            String dbUrl = "jdbc:oracle:thin:@3.85.201.5:1521:xe";
+            String dbUsername = "hr";
+            String dbPassword = "hr";
+3. We need three steps to execute our query and get result
+    Connection connection:  establishes connection
+    Statement statement :  sends your query to DB
+    ResultSet resultSet : we use to manipulate query result
+
+    resultSet.next(): takes your curser to the next row inside result table
+    resultSet.getObject(1): Takes the value of column 1 of that row
