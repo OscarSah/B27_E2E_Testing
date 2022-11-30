@@ -14,3 +14,5 @@ Feature: Spartan Database Functionality
       | Nels   | 4218971348 |
       | Fidole | 6105035231 |
       | Paige  | 3786741487 |
+
+    # add a new scenario to add a spartan from WebPage and verify if it is added from DB side
