@@ -17,10 +17,10 @@ public class TestsWithOracle {
     ResultSet resultSet;
     @BeforeMethod
     public void setUp() throws SQLException {
-        String dbUrl = "jdbc:oracle:thin:@3.239.148.14:1521:xe";
+        String dbUrl = "jdbc:oracle:thin:@3.85.201.5:1521:xe";
         String dbUsername = "hr";
         String dbPassword = "hr";
-        String query = "select distinct region_name from regions"; // three columns, how about if I get more columns
+        String query = "select distinct first_name,last_name,salary from employees"; // three columns, how about if I get more columns
         connection = DriverManager.getConnection(dbUrl,dbUsername,dbPassword); // connection string
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
