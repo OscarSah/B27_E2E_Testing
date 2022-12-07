@@ -1,5 +1,5 @@
 Feature: Spartan Database Functionality
-  @wip @db
+  @db
   Scenario: Verify each spartans phone number
     When the User retrives the phone number for the spartan "Nels"
     And User gets the number of "Nels" from webpage

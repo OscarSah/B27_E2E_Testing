@@ -1,0 +1,11 @@
+- We will connect bookIt UI part with a username and password (how to get from DB)
+- We will navigate to a schedule page, acquire the data from UI
+- We will get info from DB, compare two points
+
+select * from users; do this query
+pick one email, and password combination of firstname and lastname
+
+SQL works with relational database : tables are connected with each other through primary and foreign keys
+
+*** What is Actions class in Selenium?
+We use it for advanced mouse and keyboard actions

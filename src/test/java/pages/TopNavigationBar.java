@@ -32,6 +32,9 @@ public abstract class TopNavigationBar {
 	@FindBy(linkText = "sign out")
 	public WebElement signOut;
 
+	@FindBy(xpath = "//a[@href='/schedule/my']")
+	public WebElement mySchedule;
+
 	public void goToSelf() {
 		Actions actions = new Actions(Driver.get());
 		actions.moveToElement(my).perform();
@@ -49,4 +52,11 @@ public abstract class TopNavigationBar {
 		actions.moveToElement(my).perform();
 		signOut.click();
 	}
+
+	public void goToMySchedule(){
+		Actions actions = new Actions(Driver.get());
+		actions.moveToElement(schedule).perform();
+		mySchedule.click();
+	}
+
 }
